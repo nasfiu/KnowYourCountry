@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06425CD06520093CDFA /* AppDelegate.swift */; };
 		F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06625CD06520093CDFA /* SceneDelegate.swift */; };
-		F79BB06925CD06520093CDFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06825CD06520093CDFA /* ViewController.swift */; };
-		F79BB06C25CD06520093CDFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79BB06A25CD06520093CDFA /* Main.storyboard */; };
 		F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06D25CD06520093CDFA /* KnowYourCountry.xcdatamodeld */; };
 		F79BB07125CD06550093CDFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79BB07025CD06550093CDFA /* Assets.xcassets */; };
 		F79BB07425CD06550093CDFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79BB07225CD06550093CDFA /* LaunchScreen.storyboard */; };
 		F79BB07F25CD06550093CDFA /* KnowYourCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB07E25CD06550093CDFA /* KnowYourCountryTests.swift */; };
 		F79BB08A25CD06560093CDFA /* KnowYourCountryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB08925CD06560093CDFA /* KnowYourCountryUITests.swift */; };
+		F79BB09F25CD1B430093CDFA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB09E25CD1B430093CDFA /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +38,6 @@
 		F79BB06125CD06520093CDFA /* KnowYourCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB06425CD06520093CDFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79BB06625CD06520093CDFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F79BB06825CD06520093CDFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F79BB06B25CD06520093CDFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F79BB06E25CD06520093CDFA /* KnowYourCountry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KnowYourCountry.xcdatamodel; sourceTree = "<group>"; };
 		F79BB07025CD06550093CDFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F79BB07325CD06550093CDFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +48,7 @@
 		F79BB08525CD06560093CDFA /* KnowYourCountryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnowYourCountryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB08925CD06560093CDFA /* KnowYourCountryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourCountryUITests.swift; sourceTree = "<group>"; };
 		F79BB08B25CD06560093CDFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F79BB09E25CD1B430093CDFA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +99,9 @@
 		F79BB06325CD06520093CDFA /* KnowYourCountry */ = {
 			isa = PBXGroup;
 			children = (
+				F79BB09D25CD1B2C0093CDFA /* Home */,
 				F79BB06425CD06520093CDFA /* AppDelegate.swift */,
 				F79BB06625CD06520093CDFA /* SceneDelegate.swift */,
-				F79BB06825CD06520093CDFA /* ViewController.swift */,
-				F79BB06A25CD06520093CDFA /* Main.storyboard */,
 				F79BB07025CD06550093CDFA /* Assets.xcassets */,
 				F79BB07225CD06550093CDFA /* LaunchScreen.storyboard */,
 				F79BB07525CD06550093CDFA /* Info.plist */,
@@ -129,6 +126,14 @@
 				F79BB08B25CD06560093CDFA /* Info.plist */,
 			);
 			path = KnowYourCountryUITests;
+			sourceTree = "<group>";
+		};
+		F79BB09D25CD1B2C0093CDFA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F79BB09E25CD1B430093CDFA /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +241,6 @@
 			files = (
 				F79BB07425CD06550093CDFA /* LaunchScreen.storyboard in Resources */,
 				F79BB07125CD06550093CDFA /* Assets.xcassets in Resources */,
-				F79BB06C25CD06520093CDFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F79BB06925CD06520093CDFA /* ViewController.swift in Sources */,
 				F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */,
 				F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */,
 				F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */,
+				F79BB09F25CD1B430093CDFA /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +304,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F79BB06A25CD06520093CDFA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F79BB06B25CD06520093CDFA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F79BB07225CD06550093CDFA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
