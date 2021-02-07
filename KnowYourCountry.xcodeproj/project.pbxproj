@@ -15,6 +15,9 @@
 		F79BB07F25CD06550093CDFA /* KnowYourCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB07E25CD06550093CDFA /* KnowYourCountryTests.swift */; };
 		F79BB08A25CD06560093CDFA /* KnowYourCountryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB08925CD06560093CDFA /* KnowYourCountryUITests.swift */; };
 		F79BB09F25CD1B430093CDFA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB09E25CD1B430093CDFA /* HomeViewController.swift */; };
+		F79BB0AE25CD336C0093CDFA /* CountryInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB0AD25CD336C0093CDFA /* CountryInfoTableViewCell.swift */; };
+		F79BB0B825CD34170093CDFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB0B725CD34170093CDFA /* Constants.swift */; };
+		F79BB0BD25CD34500093CDFA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB0BC25CD34500093CDFA /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F79BB08925CD06560093CDFA /* KnowYourCountryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourCountryUITests.swift; sourceTree = "<group>"; };
 		F79BB08B25CD06560093CDFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79BB09E25CD1B430093CDFA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F79BB0AD25CD336C0093CDFA /* CountryInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F79BB0B725CD34170093CDFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F79BB0BC25CD34500093CDFA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		F79BB06325CD06520093CDFA /* KnowYourCountry */ = {
 			isa = PBXGroup;
 			children = (
+				F79BB0B625CD33EB0093CDFA /* Utilities */,
 				F79BB09D25CD1B2C0093CDFA /* Home */,
 				F79BB06425CD06520093CDFA /* AppDelegate.swift */,
 				F79BB06625CD06520093CDFA /* SceneDelegate.swift */,
@@ -131,9 +138,27 @@
 		F79BB09D25CD1B2C0093CDFA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F79BB09E25CD1B430093CDFA /* HomeViewController.swift */,
+				F79BB0AC25CD334C0093CDFA /* View */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F79BB0AC25CD334C0093CDFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F79BB09E25CD1B430093CDFA /* HomeViewController.swift */,
+				F79BB0AD25CD336C0093CDFA /* CountryInfoTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F79BB0B625CD33EB0093CDFA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F79BB0BC25CD34500093CDFA /* Settings.swift */,
+				F79BB0B725CD34170093CDFA /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +291,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */,
+				F79BB0AE25CD336C0093CDFA /* CountryInfoTableViewCell.swift in Sources */,
 				F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */,
 				F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */,
+				F79BB0BD25CD34500093CDFA /* Settings.swift in Sources */,
 				F79BB09F25CD1B430093CDFA /* HomeViewController.swift in Sources */,
+				F79BB0B825CD34170093CDFA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
