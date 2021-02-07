@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7188C5D25CFDEEC00B2C141 /* CountryInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C5C25CFDEEC00B2C141 /* CountryInfoModel.swift */; };
 		F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06425CD06520093CDFA /* AppDelegate.swift */; };
 		F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06625CD06520093CDFA /* SceneDelegate.swift */; };
 		F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06D25CD06520093CDFA /* KnowYourCountry.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F7188C5C25CFDEEC00B2C141 /* CountryInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoModel.swift; sourceTree = "<group>"; };
 		F79BB06125CD06520093CDFA /* KnowYourCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB06425CD06520093CDFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79BB06625CD06520093CDFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7188C5B25CFDECD00B2C141 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7188C5C25CFDEEC00B2C141 /* CountryInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F79BB05825CD06520093CDFA = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +148,7 @@
 		F79BB09D25CD1B2C0093CDFA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F7188C5B25CFDECD00B2C141 /* Model */,
 				F79BB0AC25CD334C0093CDFA /* View */,
 			);
 			path = Home;
@@ -292,6 +303,7 @@
 			files = (
 				F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */,
 				F79BB0AE25CD336C0093CDFA /* CountryInfoTableViewCell.swift in Sources */,
+				F7188C5D25CFDEEC00B2C141 /* CountryInfoModel.swift in Sources */,
 				F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */,
 				F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */,
 				F79BB0BD25CD34500093CDFA /* Settings.swift in Sources */,
