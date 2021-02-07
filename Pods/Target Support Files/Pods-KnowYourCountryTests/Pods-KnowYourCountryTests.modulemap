@@ -1,0 +1,6 @@
+framework module Pods_KnowYourCountryTests {
+  umbrella header "Pods-KnowYourCountryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
