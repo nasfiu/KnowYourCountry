@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,14 @@
 		5C76CE3282CB935C2B1A5DEA /* Pods_KnowYourCountry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07FB7ABD91A875B3158D61A /* Pods_KnowYourCountry.framework */; };
 		E5BB60B6194C45D6EE0AEB5D /* Pods_KnowYourCountryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C10186075D18094E7913334 /* Pods_KnowYourCountryTests.framework */; };
 		F7188C5D25CFDEEC00B2C141 /* CountryInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C5C25CFDEEC00B2C141 /* CountryInfoModel.swift */; };
+		F7188C7925CFE17400B2C141 /* ReachabilityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7125CFE17300B2C141 /* ReachabilityUtils.swift */; };
+		F7188C7A25CFE17400B2C141 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7225CFE17300B2C141 /* ErrorHandling.swift */; };
+		F7188C7B25CFE17400B2C141 /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7325CFE17300B2C141 /* HttpUtils.swift */; };
+		F7188C7C25CFE17400B2C141 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7425CFE17300B2C141 /* Logger.swift */; };
+		F7188C7D25CFE17400B2C141 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7525CFE17300B2C141 /* Shared.swift */; };
+		F7188C7E25CFE17400B2C141 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7625CFE17300B2C141 /* JSONUtils.swift */; };
+		F7188C7F25CFE17400B2C141 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7725CFE17300B2C141 /* URLConstants.swift */; };
+		F7188C8025CFE17400B2C141 /* ReactiveURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */; };
 		F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06425CD06520093CDFA /* AppDelegate.swift */; };
 		F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06625CD06520093CDFA /* SceneDelegate.swift */; };
 		F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06D25CD06520093CDFA /* KnowYourCountry.xcdatamodeld */; };
@@ -51,6 +59,14 @@
 		D07FB7ABD91A875B3158D61A /* Pods_KnowYourCountry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourCountry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5A034EE632905F4D87E381 /* Pods-KnowYourCountry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourCountry.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourCountry/Pods-KnowYourCountry.debug.xcconfig"; sourceTree = "<group>"; };
 		F7188C5C25CFDEEC00B2C141 /* CountryInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoModel.swift; sourceTree = "<group>"; };
+		F7188C7125CFE17300B2C141 /* ReachabilityUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityUtils.swift; sourceTree = "<group>"; };
+		F7188C7225CFE17300B2C141 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		F7188C7325CFE17300B2C141 /* HttpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
+		F7188C7425CFE17300B2C141 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F7188C7525CFE17300B2C141 /* Shared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		F7188C7625CFE17300B2C141 /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
+		F7188C7725CFE17300B2C141 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveURLSession.swift; sourceTree = "<group>"; };
 		F79BB06125CD06520093CDFA /* KnowYourCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB06425CD06520093CDFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79BB06625CD06520093CDFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +125,6 @@
 				CF83A92CA8B71C4F2EACF994 /* Pods-KnowYourCountryTests.debug.xcconfig */,
 				FCE207EF64FA69CF228DCF4E /* Pods-KnowYourCountryTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +222,14 @@
 		F79BB0B625CD33EB0093CDFA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F7188C7225CFE17300B2C141 /* ErrorHandling.swift */,
+				F7188C7325CFE17300B2C141 /* HttpUtils.swift */,
+				F7188C7625CFE17300B2C141 /* JSONUtils.swift */,
+				F7188C7425CFE17300B2C141 /* Logger.swift */,
+				F7188C7125CFE17300B2C141 /* ReachabilityUtils.swift */,
+				F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */,
+				F7188C7525CFE17300B2C141 /* Shared.swift */,
+				F7188C7725CFE17300B2C141 /* URLConstants.swift */,
 				F79BB0BC25CD34500093CDFA /* Settings.swift */,
 				F79BB0B725CD34170093CDFA /* Constants.swift */,
 			);
@@ -450,12 +473,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7188C7D25CFE17400B2C141 /* Shared.swift in Sources */,
 				F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */,
+				F7188C7925CFE17400B2C141 /* ReachabilityUtils.swift in Sources */,
 				F79BB0AE25CD336C0093CDFA /* CountryInfoTableViewCell.swift in Sources */,
 				F7188C5D25CFDEEC00B2C141 /* CountryInfoModel.swift in Sources */,
 				F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */,
+				F7188C7F25CFE17400B2C141 /* URLConstants.swift in Sources */,
+				F7188C7B25CFE17400B2C141 /* HttpUtils.swift in Sources */,
+				F7188C7E25CFE17400B2C141 /* JSONUtils.swift in Sources */,
 				F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */,
+				F7188C7C25CFE17400B2C141 /* Logger.swift in Sources */,
 				F79BB0BD25CD34500093CDFA /* Settings.swift in Sources */,
+				F7188C7A25CFE17400B2C141 /* ErrorHandling.swift in Sources */,
+				F7188C8025CFE17400B2C141 /* ReactiveURLSession.swift in Sources */,
 				F79BB09F25CD1B430093CDFA /* HomeViewController.swift in Sources */,
 				F79BB0B825CD34170093CDFA /* Constants.swift in Sources */,
 			);
