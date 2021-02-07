@@ -19,6 +19,7 @@
 		F7188C7E25CFE17400B2C141 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7625CFE17300B2C141 /* JSONUtils.swift */; };
 		F7188C7F25CFE17400B2C141 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7725CFE17300B2C141 /* URLConstants.swift */; };
 		F7188C8025CFE17400B2C141 /* ReactiveURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */; };
+		F7188C8625CFF2E400B2C141 /* CountryInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */; };
 		F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06425CD06520093CDFA /* AppDelegate.swift */; };
 		F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06625CD06520093CDFA /* SceneDelegate.swift */; };
 		F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06D25CD06520093CDFA /* KnowYourCountry.xcdatamodeld */; };
@@ -67,6 +68,7 @@
 		F7188C7625CFE17300B2C141 /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		F7188C7725CFE17300B2C141 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveURLSession.swift; sourceTree = "<group>"; };
+		F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoViewModel.swift; sourceTree = "<group>"; };
 		F79BB06125CD06520093CDFA /* KnowYourCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB06425CD06520093CDFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79BB06625CD06520093CDFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F7188C8425CFF2D100B2C141 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F79BB05825CD06520093CDFA = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 		F79BB09D25CD1B2C0093CDFA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F7188C8425CFF2D100B2C141 /* ViewModel */,
 				F7188C5B25CFDECD00B2C141 /* Model */,
 				F79BB0AC25CD334C0093CDFA /* View */,
 			);
@@ -479,6 +490,7 @@
 				F79BB0AE25CD336C0093CDFA /* CountryInfoTableViewCell.swift in Sources */,
 				F7188C5D25CFDEEC00B2C141 /* CountryInfoModel.swift in Sources */,
 				F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */,
+				F7188C8625CFF2E400B2C141 /* CountryInfoViewModel.swift in Sources */,
 				F7188C7F25CFE17400B2C141 /* URLConstants.swift in Sources */,
 				F7188C7B25CFE17400B2C141 /* HttpUtils.swift in Sources */,
 				F7188C7E25CFE17400B2C141 /* JSONUtils.swift in Sources */,
@@ -660,6 +672,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 86QNG3MQTP;
 				INFOPLIST_FILE = KnowYourCountry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -680,6 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 86QNG3MQTP;
 				INFOPLIST_FILE = KnowYourCountry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CountryInfoTableViewCell: UITableViewCell {
     
@@ -100,9 +101,13 @@ class CountryInfoTableViewCell: UITableViewCell {
         
     }
 
-    func updateCellUI(){
-        titleLabel.text = "Title"
-        descriptionLabel.text = "Description"
-        backgroundImageView.image = UIImage(named: placeholderImage)
+    func updateCellUI(countryInfoItem: CountryDetailItem){
+        titleLabel.text = countryInfoItem.title ?? ""
+        descriptionLabel.text = countryInfoItem.description ?? ""
+        if let imageUrl = countryInfoItem.image {
+            backgroundImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeholderImage))
+        } else {
+            backgroundImageView.image = UIImage(named: placeholderImage)
+        }
     }
 }

@@ -6,17 +6,25 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController {
-
-    private let countryInfoTableView = UITableView(frame: .zero, style: .grouped)
+    
+    let countryInfoTableView = UITableView(frame: .zero, style: .grouped)
     private let countryInfoCellIdentifier = "CountryDetailCellIdentifier"
+    private let viewModel = CountryInfoViewModel()
+    private let disposeBag = DisposeBag()
+    private var spinner = UIActivityIndicatorView()
     private let estimatedRowHeight:CGFloat = 400
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        getCountryInfo()
+        setupActivityIndicator()
     }
+    
+    //MARK:- SetupUI Custom methods
     
     private func setupTableView() {
         view.addSubview(countryInfoTableView)
@@ -42,7 +50,43 @@ class HomeViewController: UIViewController {
     private func registerTableViewCell(){
         countryInfoTableView.register(CountryInfoTableViewCell.self, forCellReuseIdentifier: countryInfoCellIdentifier)
     }
-
+    
+    private func setupActivityIndicator() {
+        if #available(iOS 13.0, *) {
+            spinner.style = .large
+        } else {
+            spinner.style = .whiteLarge
+        }
+        spinner.center = view.center
+        self.view.addSubview(spinner)
+    }
+    
+    private func setupNavigationBar(title: String){
+        navigationItem.title = title
+    }
+    
+    private func updateUI() {
+        DispatchQueue.main.async {
+            self.setupNavigationBar(title: self.viewModel.title ?? "")
+            self.countryInfoTableView.reloadData()
+            
+        }
+    }
+    
+    //MARK:- API Call
+    
+    @objc private func getCountryInfo() {
+        viewModel.getCountryInfoDetails().observeOn(MainScheduler.instance).do(onSubscribe: {[unowned self] in
+                self.spinner.startAnimating()
+            }, onDispose: {
+                self.spinner.stopAnimating()
+        }).subscribe(onSuccess: {
+            self.updateUI()
+        }, onError: {error in
+            self.spinner.stopAnimating()
+        }).disposed(by: disposeBag)
+    }
+    
 }
 
 //MARK:- UITableViewDataSource Methods
@@ -50,12 +94,14 @@ class HomeViewController: UIViewController {
 extension HomeViewController:UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.countryInfoList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: countryInfoCellIdentifier, for: indexPath) as! CountryInfoTableViewCell
-        cell.updateCellUI()
+        if let countryInfoItem = viewModel.countryInfoList?[indexPath.row] {
+            cell.updateCellUI(countryInfoItem: countryInfoItem)
+        }
         return cell
     }
 }
