@@ -20,6 +20,7 @@
 		F7188C7F25CFE17400B2C141 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7725CFE17300B2C141 /* URLConstants.swift */; };
 		F7188C8025CFE17400B2C141 /* ReactiveURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */; };
 		F7188C8625CFF2E400B2C141 /* CountryInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */; };
+		F74D057B25D1187700E08AAF /* ErrorAlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D057A25D1187700E08AAF /* ErrorAlertProtocol.swift */; };
 		F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06425CD06520093CDFA /* AppDelegate.swift */; };
 		F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06625CD06520093CDFA /* SceneDelegate.swift */; };
 		F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06D25CD06520093CDFA /* KnowYourCountry.xcdatamodeld */; };
@@ -69,6 +70,7 @@
 		F7188C7725CFE17300B2C141 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveURLSession.swift; sourceTree = "<group>"; };
 		F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoViewModel.swift; sourceTree = "<group>"; };
+		F74D057A25D1187700E08AAF /* ErrorAlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertProtocol.swift; sourceTree = "<group>"; };
 		F79BB06125CD06520093CDFA /* KnowYourCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB06425CD06520093CDFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79BB06625CD06520093CDFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F74D057925D1187700E08AAF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F74D057A25D1187700E08AAF /* ErrorAlertProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		F79BB05825CD06520093CDFA = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +243,7 @@
 		F79BB0B625CD33EB0093CDFA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F74D057925D1187700E08AAF /* Protocols */,
 				F7188C7225CFE17300B2C141 /* ErrorHandling.swift */,
 				F7188C7325CFE17300B2C141 /* HttpUtils.swift */,
 				F7188C7625CFE17300B2C141 /* JSONUtils.swift */,
@@ -493,6 +504,7 @@
 				F7188C8625CFF2E400B2C141 /* CountryInfoViewModel.swift in Sources */,
 				F7188C7F25CFE17400B2C141 /* URLConstants.swift in Sources */,
 				F7188C7B25CFE17400B2C141 /* HttpUtils.swift in Sources */,
+				F74D057B25D1187700E08AAF /* ErrorAlertProtocol.swift in Sources */,
 				F7188C7E25CFE17400B2C141 /* JSONUtils.swift in Sources */,
 				F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */,
 				F7188C7C25CFE17400B2C141 /* Logger.swift in Sources */,

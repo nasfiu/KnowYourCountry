@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, ErrorAlertProtocol {
     
     let countryInfoTableView = UITableView(frame: .zero, style: .grouped)
     private let countryInfoCellIdentifier = "CountryDetailCellIdentifier"
@@ -93,6 +93,7 @@ class HomeViewController: UIViewController {
             self.updateUI()
         }, onError: {error in
             self.endRefreshing()
+            self.showAlert(message: error.localizedDescription)
         }).disposed(by: disposeBag)
     }
     
