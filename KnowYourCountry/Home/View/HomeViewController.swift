@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     private let countryInfoCellIdentifier = "CountryDetailCellIdentifier"
     private let viewModel = CountryInfoViewModel()
     private let disposeBag = DisposeBag()
+    private let refreshControl = UIRefreshControl()
     private var spinner = UIActivityIndicatorView()
     private let estimatedRowHeight:CGFloat = 400
     
@@ -21,6 +22,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         getCountryInfo()
+        setupPullToRefresh()
         setupActivityIndicator()
     }
     
@@ -51,6 +53,11 @@ class HomeViewController: UIViewController {
         countryInfoTableView.register(CountryInfoTableViewCell.self, forCellReuseIdentifier: countryInfoCellIdentifier)
     }
     
+    private func setupPullToRefresh() {
+        refreshControl.addTarget(self, action: #selector(getCountryInfo), for: .valueChanged)
+        countryInfoTableView.refreshControl = refreshControl
+    }
+    
     private func setupActivityIndicator() {
         if #available(iOS 13.0, *) {
             spinner.style = .large
@@ -77,14 +84,31 @@ class HomeViewController: UIViewController {
     
     @objc private func getCountryInfo() {
         viewModel.getCountryInfoDetails().observeOn(MainScheduler.instance).do(onSubscribe: {[unowned self] in
+            if !self.refreshControl.isRefreshing{
                 self.spinner.startAnimating()
+            }
             }, onDispose: {
-                self.spinner.stopAnimating()
+                self.endRefreshing()
         }).subscribe(onSuccess: {
             self.updateUI()
         }, onError: {error in
-            self.spinner.stopAnimating()
+            self.endRefreshing()
         }).disposed(by: disposeBag)
+    }
+    
+    private func endRefreshing() {
+        if spinner.isAnimating {
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+            }
+        }
+        if let refreshContrl = countryInfoTableView.refreshControl {
+            if refreshContrl.isRefreshing {
+                DispatchQueue.main.async {
+                    refreshContrl.endRefreshing()
+                }
+            }
+        }
     }
     
 }
