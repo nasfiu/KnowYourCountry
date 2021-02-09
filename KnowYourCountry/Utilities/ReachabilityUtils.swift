@@ -26,7 +26,7 @@ class ReachabilityUtils {
             reachability = reachabilityMap[host]
             if reachability == nil {
                 reachability = Reachability(hostName: host)
-                reachability.map { reachabilityMap[host] = $0 } // save it to reuse
+                reachability.map { reachabilityMap[host] = $0 }
             }
         }
         

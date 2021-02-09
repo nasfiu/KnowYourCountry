@@ -96,7 +96,9 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
             self.updateUI()
         }, onError: {error in
             self.endRefreshing()
-            self.showAlert(message: error.localizedDescription)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.showAlert(message: error.localizedDescription)
+            }
         })
             .disposed(by: disposeBag)
     }

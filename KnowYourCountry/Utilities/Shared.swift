@@ -36,8 +36,8 @@ class Shared {
         }
     }
     
-    /// `push()` and `pop()` is used by
-    /// unit testing to setup mock shared objects
+    // `push()` and `pop()` is used by
+    // unit testing to setup mock shared objects
     static func push() {
         stack.insert(Shared(populate: false), at: 0)
     }

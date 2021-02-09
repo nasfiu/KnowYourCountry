@@ -82,6 +82,11 @@ class CountryInfoTableViewCell: UITableViewCell {
         containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
         containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         
+        backgroundImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: LayoutConstants.innerMargin).isActive = true
+        backgroundImageView.widthAnchor.constraint(equalToConstant: imageViewWidth).isActive = true
+        backgroundImageView.heightAnchor.constraint(equalToConstant: imageViewHeight).isActive = true
+        backgroundImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
+
         titleLabel.leadingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor, constant: LayoutConstants.innerMargin).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -LayoutConstants.innerMargin).isActive = true
@@ -91,10 +96,6 @@ class CountryInfoTableViewCell: UITableViewCell {
         descriptionLabel.leadingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor, constant: LayoutConstants.innerMargin).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: LayoutConstants.innerMargin).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: LayoutConstants.innerMargin).isActive = true
-        backgroundImageView.widthAnchor.constraint(equalToConstant: imageViewWidth).isActive = true
-        backgroundImageView.heightAnchor.constraint(equalToConstant: imageViewHeight).isActive = true
-        backgroundImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
     }
 
     func updateCellUI(countryInfoItem: CountryDetailItem) {

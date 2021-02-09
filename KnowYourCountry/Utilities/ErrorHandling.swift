@@ -39,7 +39,7 @@ func descriptionOf(error: Error) -> String {
 }
 
 func logError(_ error: Error) {
-    #if MY_DEBUG
+    #if DEBUG
     let message = descriptionOf(error: error)
     print(message)
     #endif

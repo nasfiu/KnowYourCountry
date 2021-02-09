@@ -21,6 +21,12 @@
 		F7188C8025CFE17400B2C141 /* ReactiveURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */; };
 		F7188C8625CFF2E400B2C141 /* CountryInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */; };
 		F74D057B25D1187700E08AAF /* ErrorAlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D057A25D1187700E08AAF /* ErrorAlertProtocol.swift */; };
+		F74D05C925D2409D00E08AAF /* ReachabilityUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D05C825D2409D00E08AAF /* ReachabilityUtilsTests.swift */; };
+		F74D05D125D2422C00E08AAF /* HttpUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D05D025D2422C00E08AAF /* HttpUtilsTests.swift */; };
+		F74D05D825D242AB00E08AAF /* MockHttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D05D725D242AB00E08AAF /* MockHttpUtils.swift */; };
+		F74D05E025D2430000E08AAF /* MockReactiveUrlSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D05DF25D2430000E08AAF /* MockReactiveUrlSession.swift */; };
+		F74D05E625D2477500E08AAF /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74D05E525D2477500E08AAF /* XCTestCase.swift */; };
+		F74D05EF25D2479100E08AAF /* CountryInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = F74D05EE25D2479100E08AAF /* CountryInfo.json */; };
 		F79BB06525CD06520093CDFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06425CD06520093CDFA /* AppDelegate.swift */; };
 		F79BB06725CD06520093CDFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06625CD06520093CDFA /* SceneDelegate.swift */; };
 		F79BB06F25CD06520093CDFA /* KnowYourCountry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F79BB06D25CD06520093CDFA /* KnowYourCountry.xcdatamodeld */; };
@@ -71,6 +77,12 @@
 		F7188C7825CFE17300B2C141 /* ReactiveURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveURLSession.swift; sourceTree = "<group>"; };
 		F7188C8525CFF2E400B2C141 /* CountryInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfoViewModel.swift; sourceTree = "<group>"; };
 		F74D057A25D1187700E08AAF /* ErrorAlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertProtocol.swift; sourceTree = "<group>"; };
+		F74D05C825D2409D00E08AAF /* ReachabilityUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityUtilsTests.swift; sourceTree = "<group>"; };
+		F74D05D025D2422C00E08AAF /* HttpUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtilsTests.swift; sourceTree = "<group>"; };
+		F74D05D725D242AB00E08AAF /* MockHttpUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHttpUtils.swift; sourceTree = "<group>"; };
+		F74D05DF25D2430000E08AAF /* MockReactiveUrlSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockReactiveUrlSession.swift; sourceTree = "<group>"; };
+		F74D05E525D2477500E08AAF /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		F74D05EE25D2479100E08AAF /* CountryInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryInfo.json; sourceTree = "<group>"; };
 		F79BB06125CD06520093CDFA /* KnowYourCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79BB06425CD06520093CDFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F79BB06625CD06520093CDFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +178,41 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		F74D05C725D2403100E08AAF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F79BB07E25CD06550093CDFA /* KnowYourCountryTests.swift */,
+				F74D05C825D2409D00E08AAF /* ReachabilityUtilsTests.swift */,
+				F74D05D025D2422C00E08AAF /* HttpUtilsTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F74D05D625D2428A00E08AAF /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F74D05D725D242AB00E08AAF /* MockHttpUtils.swift */,
+				F74D05DF25D2430000E08AAF /* MockReactiveUrlSession.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F74D05E425D2472300E08AAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F74D05E525D2477500E08AAF /* XCTestCase.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F74D05ED25D2478400E08AAF /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				F74D05EE25D2479100E08AAF /* CountryInfo.json */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		F79BB05825CD06520093CDFA = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +253,10 @@
 		F79BB07D25CD06550093CDFA /* KnowYourCountryTests */ = {
 			isa = PBXGroup;
 			children = (
-				F79BB07E25CD06550093CDFA /* KnowYourCountryTests.swift */,
+				F74D05ED25D2478400E08AAF /* Stubs */,
+				F74D05E425D2472300E08AAF /* Extensions */,
+				F74D05D625D2428A00E08AAF /* Mocks */,
+				F74D05C725D2403100E08AAF /* Tests */,
 				F79BB08025CD06560093CDFA /* Info.plist */,
 			);
 			path = KnowYourCountryTests;
@@ -376,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74D05EF25D2479100E08AAF /* CountryInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +589,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74D05C925D2409D00E08AAF /* ReachabilityUtilsTests.swift in Sources */,
+				F74D05E025D2430000E08AAF /* MockReactiveUrlSession.swift in Sources */,
+				F74D05D825D242AB00E08AAF /* MockHttpUtils.swift in Sources */,
 				F79BB07F25CD06550093CDFA /* KnowYourCountryTests.swift in Sources */,
+				F74D05E625D2477500E08AAF /* XCTestCase.swift in Sources */,
+				F74D05D125D2422C00E08AAF /* HttpUtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
