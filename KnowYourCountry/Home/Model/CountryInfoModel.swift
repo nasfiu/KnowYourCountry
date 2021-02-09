@@ -7,11 +7,9 @@
 
 import Foundation
 
-import Foundation
-
 struct CountryInfoModel: Decodable {
-    var title:String?
-    var countryDetailItems:[CountryDetailItem]?
+    var title: String?
+    var countryDetailItems: [CountryDetailItem]?
     
     private enum CodingKeys: String, CodingKey {
         case title
@@ -19,10 +17,10 @@ struct CountryInfoModel: Decodable {
     }
 }
 
-struct CountryDetailItem:Decodable {
-    var title:String?
-    var description:String?
-    var image:String?
+struct CountryDetailItem: Decodable {
+    var title: String?
+    var description: String?
+    var image: String?
     
     private enum CodingKeys: String, CodingKey {
         case title, description

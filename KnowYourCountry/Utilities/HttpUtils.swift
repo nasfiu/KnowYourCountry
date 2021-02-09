@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 struct ErrorPayload: Decodable {
     let error: ErrorDetailPayload?
@@ -28,30 +28,21 @@ class HttpUtils {
         case delete = "DELETE"
     }
     
-    static var shared:HttpUtils{
-        return Shared.httpUtils
+    static var shared: HttpUtils {
+        Shared.httpUtils
     }
     
-    func fetchData(uriPath: String, method: RequestMethod? = nil, body: Any? = nil) -> Single<Data>
-    {
-        return _fetchData(uriPath: uriPath, method: method, body: body)
+    func fetchData(uriPath: String, method: RequestMethod? = nil, body: Any? = nil) -> Single<Data> {
+        _fetchData(uriPath: uriPath, method: method, body: body)
     }
     
     private func _fetchData(uriPath: String, method: RequestMethod?, body: Any?) -> Single<Data> {
-        
-        let baseUrl: String = URLConstants.baseURL
-        
-        let urlStr = baseUrl + uriPath
+        let urlStr = URLConstants.baseURL + uriPath
         guard let url = URL(string: urlStr) else {
             let error = createError(StringConstants.errorConstructUrl + urlStr)
             return Observable.error(error).asSingle()
         }
-        
-        guard ReachabilityUtils.shared.isReachable(url: url) else {
-            let error = createError(code: .hostNotReachable, NSLocalizedString(StringConstants.notReachable, comment: ""))
-            return Observable.error(error).asSingle()
-        }
-        
+        _ = checkReachability(url: url)
         debugLog("making REST call to: \(urlStr)")
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         
@@ -73,23 +64,23 @@ class HttpUtils {
                     if let bodyStr = String(data: data, encoding: .utf8) {
                         message += ", response body: \(bodyStr)"
                     }
-                    
-                    let serverMessage: String?
-                    let serverErrorCode: String?
+                    var serverMessage = ""
+                    var serverErrorCode = ""
                     if let errorPayload = try? decodeJson(jsonData: data, type: ErrorPayload.self) {
-                        serverMessage = errorPayload.error?.message
-                        serverErrorCode = errorPayload.error?.code
-                    } else {
-                        serverMessage = nil
-                        serverErrorCode = nil
+                        serverMessage = errorPayload.error?.message ?? "Error"
+                        serverErrorCode = errorPayload.error?.code ?? "Error"
                     }
-                    if response.statusCode == 403 {
-                        //Forbidden
-                    }
-                    
-                    return Observable.error(createError(code: .unexpectedServerResponse(serverMessage, serverErrorCode), message))
+                    return Observable.error(createError(message, code: .unexpectedServerResponse(serverMessage, serverErrorCode)))
                 }
+            }
+            .asSingle()
+    }
+    
+    private func checkReachability(url: URL) -> Single<Data>? {
+        guard ReachabilityUtils.shared.isReachable(url: url) else {
+            let error = createError(NSLocalizedString(StringConstants.notReachable, comment: ""), code: .hostNotReachable)
+            return Observable.error(error).asSingle()
         }
-        .asSingle()
+        return nil
     }
 }

@@ -10,8 +10,8 @@ import RxSwift
 
 class ReactiveURLSession {
     
-    static var shared:ReactiveURLSession{
-        return Shared.reactiveURLSession
+    static var shared: ReactiveURLSession {
+        Shared.reactiveURLSession
     }
     
     private let urlSession: URLSession
@@ -25,6 +25,6 @@ class ReactiveURLSession {
     }
     
     func response(request: URLRequest) -> Observable<(response: HTTPURLResponse, data: Data)> {
-        return urlSession.rx.response(request: request)
+        urlSession.rx.response(request: request)
     }
 }

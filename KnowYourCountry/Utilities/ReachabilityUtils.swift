@@ -14,14 +14,14 @@ class ReachabilityUtils {
         case reachable
     }
     
-    static var shared:ReachabilityUtils{
-        return Shared.reachabilityUtils
+    static var shared: ReachabilityUtils {
+        Shared.reachabilityUtils
     }
     
     private var reachabilityMap = [String: Reachability]()
     
     func isReachable(url: URL) -> Bool {
-        var reachability: Reachability? = nil
+        var reachability: Reachability?
         if let host = url.host {
             reachability = reachabilityMap[host]
             if reachability == nil {
@@ -38,7 +38,7 @@ class ReachabilityUtils {
     }
 }
 
-fileprivate class Reachability {
+private class Reachability {
     
     private var networkReachability: SCNetworkReachability
     
@@ -50,7 +50,8 @@ fileprivate class Reachability {
         guard let networkReachability = data.withUnsafeBytes({ ptr -> SCNetworkReachability? in
             if let bytes = ptr.baseAddress?.assumingMemoryBound(to: Int8.self) {
                 return SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, bytes)
-            } else {
+            }
+            else {
                 return nil
             }
         }) else {
@@ -67,10 +68,12 @@ fileprivate class Reachability {
             let needsConnection = flags.contains(.connectionRequired)
             if isReachable && needsConnection == false {
                 return .reachable
-            } else {
+            }
+            else {
                 return .notReachable
             }
-        } else {
+        }
+        else {
             return .reachable // if can't determine the network reachability, consider it reachable
         }
     }

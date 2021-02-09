@@ -10,22 +10,22 @@ import Foundation
 class Shared {
     
     static var stack: [Shared] = {
-        return [Shared(populate: true)]
+        [Shared(populate: true)]
     }()
     
-    var httpUtils: HttpUtils? = nil
+    var httpUtils: HttpUtils?
     static var httpUtils: HttpUtils {
-        return top().httpUtils!
+        top().httpUtils!
     }
     
-    var reachabilityUtils: ReachabilityUtils? = nil
+    var reachabilityUtils: ReachabilityUtils?
     static var reachabilityUtils: ReachabilityUtils {
-        return top().reachabilityUtils!
+        top().reachabilityUtils!
     }
     
-    var reactiveURLSession: ReactiveURLSession? = nil
+    var reactiveURLSession: ReactiveURLSession?
     static var reactiveURLSession: ReactiveURLSession {
-        return top().reactiveURLSession!
+        top().reactiveURLSession!
     }
     
     init(populate: Bool) {
@@ -48,6 +48,6 @@ class Shared {
     }
     
     static func top() -> Shared {
-        return stack[0]
+        stack[0]
     }
 }

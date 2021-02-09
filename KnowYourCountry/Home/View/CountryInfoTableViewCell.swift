@@ -5,16 +5,16 @@
 //  Created by Nasfi on 05/02/21.
 //
 
-import UIKit
 import SDWebImage
+import UIKit
 
 class CountryInfoTableViewCell: UITableViewCell {
     
     private let placeholderImage = "Imageplaceholder"
-    private let imageViewWidth:CGFloat = 60
-    private let imageViewHeight:CGFloat = 50
+    private let imageViewWidth: CGFloat = 60
+    private let imageViewHeight: CGFloat = 50
     
-    let backgroundImageView:UIImageView = {
+    let backgroundImageView: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +23,7 @@ class CountryInfoTableViewCell: UITableViewCell {
         return img
     }()
     
-    let titleLabel:UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: TextSizes.title)
@@ -32,16 +32,16 @@ class CountryInfoTableViewCell: UITableViewCell {
         return label
     }()
     
-    let descriptionLabel:UILabel = {
+    let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize:TextSizes.bodyText)
+        label.font = UIFont.boldSystemFont(ofSize: TextSizes.bodyText)
         label.textColor = TextColor.bodyTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let containerView:UIView = {
+    let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
@@ -73,7 +73,7 @@ class CountryInfoTableViewCell: UITableViewCell {
         self.contentView.addSubview(containerView)
     }
     
-//MARK:- Layout Constraints
+// MARK: Layout Constraints
     
     private func setupLayout() {
         self.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
@@ -82,31 +82,28 @@ class CountryInfoTableViewCell: UITableViewCell {
         containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
         containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         
-        titleLabel.leadingAnchor.constraint(equalTo:self.backgroundImageView.trailingAnchor,constant: LayoutConstants.innerMargin).isActive = true
-        titleLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor,constant: LayoutConstants.innerMargin).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor,constant: -LayoutConstants.innerMargin).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor, constant: LayoutConstants.innerMargin).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: self.descriptionLabel.topAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         
-        descriptionLabel.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor,constant: -LayoutConstants.innerMargin).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor,constant: LayoutConstants.innerMargin).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor,constant: -LayoutConstants.innerMargin).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -LayoutConstants.innerMargin).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor, constant: LayoutConstants.innerMargin).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: LayoutConstants.innerMargin).isActive = true
-        
-        //backgroundImageView.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         backgroundImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: LayoutConstants.innerMargin).isActive = true
         backgroundImageView.widthAnchor.constraint(equalToConstant: imageViewWidth).isActive = true
         backgroundImageView.heightAnchor.constraint(equalToConstant: imageViewHeight).isActive = true
-        //backgroundImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         backgroundImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: LayoutConstants.innerMargin).isActive = true
-        
     }
 
-    func updateCellUI(countryInfoItem: CountryDetailItem){
+    func updateCellUI(countryInfoItem: CountryDetailItem) {
         titleLabel.text = countryInfoItem.title ?? ""
         descriptionLabel.text = countryInfoItem.description ?? ""
         if let imageUrl = countryInfoItem.image {
             backgroundImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeholderImage))
-        } else {
+        }
+        else {
             backgroundImageView.image = UIImage(named: placeholderImage)
         }
     }

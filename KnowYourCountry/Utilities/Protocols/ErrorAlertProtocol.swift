@@ -11,7 +11,7 @@ protocol ErrorAlertProtocol {
     func showAlert(message: String)
 }
 
-extension ErrorAlertProtocol where Self:UIViewController {
+extension ErrorAlertProtocol where Self: UIViewController {
     
     func showAlert(message: String) {
         let alertController = UIAlertController(title: StringConstants.errorAlertTitle, message: message, preferredStyle: .alert)
@@ -19,5 +19,4 @@ extension ErrorAlertProtocol where Self:UIViewController {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
 }

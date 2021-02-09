@@ -30,13 +30,12 @@ extension AppError: LocalizedError {
     }
 }
 
-func createError(code: AppErrorCode = .none, _ message: String,cause: Error? = nil) -> AppError {
-
-    return AppError(code: code, message: message, cause: cause)
+func createError(_ message: String, cause: Error? = nil, code: AppErrorCode = .none) -> AppError {
+    AppError(code: code, message: message, cause: cause)
 }
 
 func descriptionOf(error: Error) -> String {
-    return (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+    (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
 }
 
 func logError(_ error: Error) {

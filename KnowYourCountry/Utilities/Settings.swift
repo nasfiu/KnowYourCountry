@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 struct Device {
-    static let IS_IPAD = UIDevice.current.userInterfaceIdiom == .pad
-    static let IS_IPHONE = UIDevice.current.userInterfaceIdiom == .phone
+    static let isIpad = UIDevice.current.userInterfaceIdiom == .pad
+    static let isIphone = UIDevice.current.userInterfaceIdiom == .phone
 }

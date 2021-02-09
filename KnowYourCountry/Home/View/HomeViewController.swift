@@ -5,8 +5,8 @@
 //  Created by Nasfi on 05/02/21.
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
 class HomeViewController: UIViewController, ErrorAlertProtocol {
     
@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
     private let disposeBag = DisposeBag()
     private let refreshControl = UIRefreshControl()
     private var spinner = UIActivityIndicatorView()
-    private let estimatedRowHeight:CGFloat = 400
+    private let estimatedRowHeight: CGFloat = 400
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
         setupActivityIndicator()
     }
     
-    //MARK:- SetupUI Custom methods
+// MARK: SetupUI Custom methods
     
     private func setupTableView() {
         view.addSubview(countryInfoTableView)
@@ -43,13 +43,13 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
     
     private func setupLayout() {
         countryInfoTableView.translatesAutoresizingMaskIntoConstraints = false
-        countryInfoTableView.topAnchor.constraint(equalTo: view.topAnchor,constant: LayoutConstants.verticalMargin).isActive = true
+        countryInfoTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: LayoutConstants.verticalMargin).isActive = true
         countryInfoTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         countryInfoTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         countryInfoTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    private func registerTableViewCell(){
+    private func registerTableViewCell() {
         countryInfoTableView.register(CountryInfoTableViewCell.self, forCellReuseIdentifier: countryInfoCellIdentifier)
     }
     
@@ -61,14 +61,15 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
     private func setupActivityIndicator() {
         if #available(iOS 13.0, *) {
             spinner.style = .large
-        } else {
+        }
+        else {
             spinner.style = .whiteLarge
         }
         spinner.center = view.center
         self.view.addSubview(spinner)
     }
     
-    private func setupNavigationBar(title: String){
+    private func setupNavigationBar(title: String) {
         navigationItem.title = title
     }
     
@@ -76,25 +77,28 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
         DispatchQueue.main.async {
             self.setupNavigationBar(title: self.viewModel.title ?? "")
             self.countryInfoTableView.reloadData()
-            
         }
     }
     
-    //MARK:- API Call
+// MARK: - API Call
     
     @objc private func getCountryInfo() {
-        viewModel.getCountryInfoDetails().observeOn(MainScheduler.instance).do(onSubscribe: {[unowned self] in
-            if !self.refreshControl.isRefreshing{
+        viewModel.getCountryInfoDetails()
+            .observeOn(MainScheduler.instance)
+            .do(onSubscribe: {[unowned self] in
+            if !self.refreshControl.isRefreshing {
                 self.spinner.startAnimating()
             }
             }, onDispose: {
                 self.endRefreshing()
-        }).subscribe(onSuccess: {
+        })
+            .subscribe(onSuccess: {
             self.updateUI()
         }, onError: {error in
             self.endRefreshing()
             self.showAlert(message: error.localizedDescription)
-        }).disposed(by: disposeBag)
+        })
+            .disposed(by: disposeBag)
     }
     
     private func endRefreshing() {
@@ -111,19 +115,20 @@ class HomeViewController: UIViewController, ErrorAlertProtocol {
             }
         }
     }
-    
 }
 
-//MARK:- UITableViewDataSource Methods
+// MARK: UITableViewDataSource Methods
 
-extension HomeViewController:UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.countryInfoList?.count ?? 0
+        viewModel.countryInfoList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: countryInfoCellIdentifier, for: indexPath) as! CountryInfoTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: countryInfoCellIdentifier, for: indexPath) as? CountryInfoTableViewCell else {
+            return CountryInfoTableViewCell(style: .default, reuseIdentifier: countryInfoCellIdentifier)
+        }
         if let countryInfoItem = viewModel.countryInfoList?[indexPath.row] {
             cell.updateCellUI(countryInfoItem: countryInfoItem)
         }
@@ -131,14 +136,14 @@ extension HomeViewController:UITableViewDataSource {
     }
 }
 
-//MARK:- UITableViewDelegate Methods
+// MARK: UITableViewDelegate Methods
 
-extension HomeViewController:UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
-        return UITableView.automaticDimension
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
+        CGFloat.leastNormalMagnitude
     }
 }
