@@ -17,17 +17,11 @@ class ReachabilityUtils {
     static var shared: ReachabilityUtils {
         Shared.reachabilityUtils
     }
-    
-    private var reachabilityMap = [String: Reachability]()
-    
+        
     func isReachable(url: URL) -> Bool {
         var reachability: Reachability?
         if let host = url.host {
-            reachability = reachabilityMap[host]
-            if reachability == nil {
                 reachability = Reachability(hostName: host)
-                reachability.map { reachabilityMap[host] = $0 }
-            }
         }
         
         if let reachability = reachability {
@@ -66,7 +60,7 @@ private class Reachability {
         if SCNetworkReachabilityGetFlags(networkReachability, &flags) {
             let isReachable = flags.contains(.reachable)
             let needsConnection = flags.contains(.connectionRequired)
-            if isReachable && needsConnection == false {
+            if isReachable && !needsConnection {
                 return .reachable
             }
             else {

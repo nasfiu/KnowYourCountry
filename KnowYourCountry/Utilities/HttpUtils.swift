@@ -42,7 +42,10 @@ class HttpUtils {
             let error = createError(StringConstants.errorConstructUrl + urlStr)
             return Observable.error(error).asSingle()
         }
-        _ = checkReachability(url: url)
+        guard ReachabilityUtils.shared.isReachable(url: url) else {
+            let error = createError(NSLocalizedString(StringConstants.notReachable, comment: ""), code: .hostNotReachable)
+            return Observable.error(error).asSingle()
+        }
         debugLog("making REST call to: \(urlStr)")
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         
@@ -64,23 +67,9 @@ class HttpUtils {
                     if let bodyStr = String(data: data, encoding: .utf8) {
                         message += ", response body: \(bodyStr)"
                     }
-                    var serverMessage = ""
-                    var serverErrorCode = ""
-                    if let errorPayload = try? decodeJson(jsonData: data, type: ErrorPayload.self) {
-                        serverMessage = errorPayload.error?.message ?? "Error"
-                        serverErrorCode = errorPayload.error?.code ?? "Error"
-                    }
-                    return Observable.error(createError(message, code: .unexpectedServerResponse(serverMessage, serverErrorCode)))
+                    return Observable.error(createError(message))
                 }
             }
             .asSingle()
-    }
-    
-    private func checkReachability(url: URL) -> Single<Data>? {
-        guard ReachabilityUtils.shared.isReachable(url: url) else {
-            let error = createError(NSLocalizedString(StringConstants.notReachable, comment: ""), code: .hostNotReachable)
-            return Observable.error(error).asSingle()
-        }
-        return nil
     }
 }
