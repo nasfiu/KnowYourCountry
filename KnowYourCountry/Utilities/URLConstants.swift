@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct URLConstants {
+enum URLConstants {
     
     static let baseURL = "https://dl.dropboxusercontent.com/"
     
-    struct EndPoints {
+    enum EndPoints {
         static let getCountryInfo = "s/2iodh4vg0eortkl/facts.json"
     }
 }

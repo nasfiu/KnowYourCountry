@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Device {
+enum Device {
     static let isIpad = UIDevice.current.userInterfaceIdiom == .pad
     static let isIphone = UIDevice.current.userInterfaceIdiom == .phone
 }

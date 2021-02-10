@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct StringConstants {
+enum StringConstants {
     
     static let notReachable = "Server is not reachable, please check your internet connection"
     static let errorConstructUrl = "couldn't construct the RPC URL:"
@@ -17,18 +17,18 @@ struct StringConstants {
     static let ok = "OK"
 }
 
-struct LayoutConstants {
+enum LayoutConstants {
     static let horizontalMargin: CGFloat = 16
     static let verticalMargin: CGFloat = 16
     static let innerMargin: CGFloat = 8
 }
 
-struct TextSizes {
+enum TextSizes {
     static let title: CGFloat = Device.isIpad ? 26 : 16
     static let bodyText: CGFloat = Device.isIpad ? 24 : 14
 }
 
-struct TextColor {
+enum TextColor {
     static let titleColor: UIColor = .black
     static let bodyTextColor: UIColor = .darkGray
 }

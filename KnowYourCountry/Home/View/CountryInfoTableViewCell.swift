@@ -66,7 +66,21 @@ final class CountryInfoTableViewCell: UITableViewCell {
         self.backgroundImageView.image = nil
     }
 
-    private func addSubViews() {
+    func updateCellUI(countryInfoItem: CountryDetailItem) {
+        titleLabel.text = countryInfoItem.title ?? ""
+        descriptionLabel.text = countryInfoItem.description ?? ""
+        if let imageUrl = countryInfoItem.image {
+            backgroundImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeholderImage))
+        }
+        else {
+            backgroundImageView.image = UIImage(named: placeholderImage)
+        }
+    }
+}
+
+private extension CountryInfoTableViewCell {
+    
+    func addSubViews() {
         containerView.addSubview(titleLabel)
         containerView.addSubview(backgroundImageView)
         containerView.addSubview(descriptionLabel)
@@ -75,7 +89,7 @@ final class CountryInfoTableViewCell: UITableViewCell {
     
 // MARK: Layout Constraints
     
-    private func setupLayout() {
+    func setupLayout() {
         self.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: LayoutConstants.horizontalMargin).isActive = true
         containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -LayoutConstants.horizontalMargin).isActive = true
@@ -96,16 +110,5 @@ final class CountryInfoTableViewCell: UITableViewCell {
         descriptionLabel.leadingAnchor.constraint(equalTo: self.backgroundImageView.trailingAnchor, constant: LayoutConstants.innerMargin).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -LayoutConstants.innerMargin).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: LayoutConstants.innerMargin).isActive = true
-    }
-
-    func updateCellUI(countryInfoItem: CountryDetailItem) {
-        titleLabel.text = countryInfoItem.title ?? ""
-        descriptionLabel.text = countryInfoItem.description ?? ""
-        if let imageUrl = countryInfoItem.image {
-            backgroundImageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: placeholderImage))
-        }
-        else {
-            backgroundImageView.image = UIImage(named: placeholderImage)
-        }
     }
 }
