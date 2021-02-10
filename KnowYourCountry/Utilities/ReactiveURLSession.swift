@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class ReactiveURLSession {
+final class ReactiveURLSession {
     
     static var shared: ReactiveURLSession {
         Shared.reactiveURLSession

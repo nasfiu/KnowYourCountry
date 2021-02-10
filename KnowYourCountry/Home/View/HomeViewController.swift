@@ -8,7 +8,7 @@
 import RxSwift
 import UIKit
 
-class HomeViewController: UIViewController, ErrorAlertProtocol {
+final class HomeViewController: UIViewController, ErrorAlertProtocol {
     
     let countryInfoTableView = UITableView(frame: .zero, style: .grouped)
     private let countryInfoCellIdentifier = "CountryDetailCellIdentifier"

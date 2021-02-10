@@ -19,7 +19,7 @@ struct ErrorDetailPayload: Decodable {
     let code: String?
 }
 
-class HttpUtils {
+final class HttpUtils {
     
     enum RequestMethod: String {
         case get = "GET"

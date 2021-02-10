@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class CountryInfoViewModel {
+final class CountryInfoViewModel {
     
     var title: String?
     var countryInfoList: [CountryDetailItem]?

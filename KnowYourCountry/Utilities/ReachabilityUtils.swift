@@ -8,7 +8,7 @@
 import Foundation
 import SystemConfiguration
 
-class ReachabilityUtils {
+final class ReachabilityUtils {
     enum Status {
         case notReachable
         case reachable

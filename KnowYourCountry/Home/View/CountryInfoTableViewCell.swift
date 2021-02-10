@@ -8,13 +8,13 @@
 import SDWebImage
 import UIKit
 
-class CountryInfoTableViewCell: UITableViewCell {
+final class CountryInfoTableViewCell: UITableViewCell {
     
     private let placeholderImage = "Imageplaceholder"
     private let imageViewWidth: CGFloat = 60
     private let imageViewHeight: CGFloat = 50
     
-    let backgroundImageView: UIImageView = {
+    private let backgroundImageView: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +23,7 @@ class CountryInfoTableViewCell: UITableViewCell {
         return img
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: TextSizes.title)
@@ -32,7 +32,7 @@ class CountryInfoTableViewCell: UITableViewCell {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: TextSizes.bodyText)
@@ -41,7 +41,7 @@ class CountryInfoTableViewCell: UITableViewCell {
         return label
     }()
     
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Shared {
+final class Shared {
     
     static var stack: [Shared] = {
         [Shared(populate: true)]
